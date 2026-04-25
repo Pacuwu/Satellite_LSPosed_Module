@@ -1,7 +1,7 @@
 # SatelliteIconHook — LSPosed Module
 
 ![Android](https://img.shields.io/badge/Android-16--green)
-![MistOS](https://img.shields.io/badge/Compatible-version-4.5-grenn)
+![MistOS](https://img.shields.io/badge/Compatible-grenn)
 
 ## ESPAÑOL:
 
