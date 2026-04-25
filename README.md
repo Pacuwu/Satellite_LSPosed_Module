@@ -111,6 +111,8 @@ com.android.systemui
 - Si actualizás MistOS, puede que algunos nombres de método cambien;
   revisá el logcat después de cada actualización.
 
+---
+
 ENGLISH:
 
 ---
@@ -132,9 +134,9 @@ in the status bar of MistOS 4.5 "Velour" (Android 16 QPR2).
 ---
 
 Build
-Open the project in Android Studio
-Build → Build APK(s) (or ./gradlew assembleRelease)
-The APK will be generated at app/build/outputs/apk/
+1. Open the project in Android Studio
+2. Build → Build APK(s) (or ./gradlew assembleRelease)
+3. The APK will be generated at app/build/outputs/apk/
 
 ---
 
