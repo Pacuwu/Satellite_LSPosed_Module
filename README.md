@@ -111,94 +111,80 @@ com.android.systemui
 - Si actualizás MistOS, puede que algunos nombres de método cambien;
   revisá el logcat después de cada actualización.
 
----
-
-## ENGLISH:
-
-# SatelliteIconHook — LSPosed Module[cite: 7]
-
-LSPosed module to force the satellite connection icon (NTN) 
-in the status bar of **MistOS 4.5 "Velour"** (Android 16 QPR2).[cite: 7]
+ENGLISH:
 
 ---
 
-## Requirements[cite: 7]
-
-| Component | Version |
-|---|---|
-| Android Studio | Hedgehog 2023.1.1+[cite: 7] |
-| Android Gradle Plugin | 8.3.0[cite: 7] |
-| compileSdk | 36 (Android 16)[cite: 7] |
-| LSPosed | Latest stable version[cite: 7] |
-| Root | Magisk / KernelSU-Next / APatch[cite: 7] |
-| SIM | Deactivated (required to initialize the telephony stack)[cite: 7] |
+LSPosed module to force the satellite connection icon (NTN)
+in the status bar of MistOS 4.5 "Velour" (Android 16 QPR2).
 
 ---
 
-## Compilation[cite: 7]
-
-1. Open the project in Android Studio.[cite: 7]
-2. `Build → Build APK(s)` (or `./gradlew assembleRelease`).[cite: 7]
-3. The APK is generated in `app/build/outputs/apk/`.[cite: 7]
+| Component             | Version                                                  |
+| --------------------- | -------------------------------------------------------- |
+| Android Studio        | Hedgehog 2023.1.1+                                       |
+| Android Gradle Plugin | 8.3.0                                                    |
+| compileSdk            | 36 (Android 16)                                          |
+| LSPosed               | Latest stable version                                    |
+| Root                  | Magisk / KernelSU-Next / APatch                          |
+| SIM                   | Deactivated (required to initialize the telephony stack) |
 
 ---
 
-## Installation[cite: 7]
+Build
+Open the project in Android Studio
+Build → Build APK(s) (or ./gradlew assembleRelease)
+The APK will be generated at app/build/outputs/apk/
 
-```bash
+---
+
 # Option A — ADB
 adb install app/build/outputs/apk/release/app-release-unsigned.apk
 
 # Option B — Copy to device and open with a file manager
-```[cite: 7]
 
-Then, in **LSPosed Manager**:[cite: 7]
-1. Enable the "SatelliteIconHook" module.[cite: 7]
-2. Confirm the scope includes **System Framework** and **System UI**.[cite: 7]
-3. Restart the device (or kill SystemUI using `adb shell killall com.android.systemui`).[cite: 7]
+Then in LSPosed Manager:
+
+1. Enable the module "SatelliteIconHook"
+2. Make sure the scope includes System Framework and System UI
+3. Reboot the device (or kill SystemUI with adb shell killall com.android.systemui)
 
 ---
 
-## Debugging[cite: 7]
+Debugging
 
-If the icon does not appear, check the logcat:[cite: 7]
-
-```bash
+If the icon does not appear, check logcat:
 adb logcat -s "SatelliteIconHook" "LSPosed" -v time
-```[cite: 7]
 
-The module logs:[cite: 7]
-- Which hooks were successfully applied.[cite: 7]
-- Which `MobileState` fields were found.[cite: 7]
-- If the NTN field was not found → lists all available fields so you can identify the correct name in your build.[cite: 7]
+The module logs:
 
-### Adjusting the NTN field manually[cite: 7]
+- Which hooks were successfully applied
+- Which MobileState fields were found
+- If the NTN field was not found → it lists all available fields
+so you can identify the correct name for your build
 
-If the log says "NTN field not found," search for the actual name:[cite: 7]
+Manually adjust NTN field
 
-```bash
-# Pull SystemUI from the device
+If the log says "NTN field not found", look for the real name:
+
+# Extract SystemUI from the device
 adb pull /system/priv-app/SystemUI/SystemUI.apk
 
-# Open with jadx-gui and search for:
+# Open with jadx-gui and search:
 # "isNonTerrestrialNetwork" | "mIsNtn" | "satellite" | "ntn"
-# within the MobileState or MobileIconState classes
-```[cite: 7]
-
-Then, add the found name to the `NTN_FIELD_CANDIDATES` array in `SystemUIHook.java` and recompile.[cite: 7]
+# in the MobileState or MobileIconState class
+Then add the discovered name to the NTN_FIELD_CANDIDATES array
+in SystemUIHook.java and rebuild.
 
 ---
 
-## Hook Architecture[cite: 7]
-
-```
-system_server ("android" process)
+system_server (process "android")
 └── TelephonyHook
     ├── SatelliteManager.requestIsSatelliteEnabled()  → true
     ├── SatelliteManager.requestIsSatelliteSupported() → true
     ├── SatelliteController.isSatelliteEnabled()       → true
     ├── SatelliteController.isSatelliteSupported()     → true
-    └── SatelliteController.*  (alternative methods)  → true
+    └── SatelliteController.*  (alternative methods)   → true
 
 com.android.systemui
 └── SystemUIHook
@@ -206,13 +192,11 @@ com.android.systemui
     │   └── MobileState.isNonTerrestrialNetwork = true
     ├── SatelliteViewModel / SatelliteInteractor (modern pipeline)
     └── MobileIconInteractor (modern pipeline)
-```[cite: 7]
 
 ---
 
-## Notes[cite: 7]
-
-- The effect is **cosmetic**: the icon is displayed, but there is no actual connectivity without active satellite hardware.[cite: 7]
-- A **deactivated SIM is required** for the `SatelliteController` process to initialize correctly.[cite: 7]
-- Tested against the MistOS 4.5 source tree (LineageOS branch 16.2).[cite: 7]
-- If you update MistOS, some method names might change; check the logcat after every update.[cite: 7]
+Notes
+The effect is cosmetic: the icon is shown but there is no real connectivity without active satellite hardware.
+A deactivated SIM is still required for the SatelliteController process to initialize correctly.
+Tested against MistOS 4.5 source tree (LineageOS branch 16.2).
+If you update MistOS, some method names may change; check logcat after each update.
