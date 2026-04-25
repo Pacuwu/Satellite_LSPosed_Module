@@ -1,7 +1,7 @@
 # SatelliteIconHook — LSPosed Module
 
 ![Android](https://img.shields.io/badge/Android-16-green)
-![Real Service](https://img.shields.io/badge/No-red)
+![Real?](https://img.shields.io/badge/No-red)
 
 ## ESPAÑOL:
 
