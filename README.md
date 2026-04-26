@@ -7,7 +7,7 @@
 ## ESPAÑOL
 
 Módulo LSPosed para forzar el ícono de conexión satelital (NTN)  
-en la status bar de **MistOS 4.5 "Velour"** (Android 16 QPR2).
+en la status bar de Android 16 QPR1+
 
 ---
 
@@ -48,7 +48,7 @@ Activar en LSPosed → reiniciar
 ## ENGLISH
 
 LSPosed module to force the satellite connection icon (NTN)  
-in the status bar of **MistOS 4.5 "Velour"** (Android 16 QPR2).
+in the status bar of Android 16 QPR1+
 
 ---
 
