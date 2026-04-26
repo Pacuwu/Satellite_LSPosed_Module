@@ -25,7 +25,6 @@ en la status bar de **MistOS 4.5 "Velour"** (Android 16 QPR2).
 ---
 
 ## Compilar
-
 1. Abrir el proyecto en Android Studio  
 2. `Build → Build APK(s)`  
 3. APK en `app/build/outputs/apk/`
@@ -41,6 +40,10 @@ adb install app-release-unsigned.apk
 Activar en LSPosed → reiniciar
 
 ---
+
+## Notas
+- Solo cosmético
+- no da red satelital real
 
 ## ENGLISH
 
@@ -83,5 +86,4 @@ Enable in LSPosed → reboot
 ## Notes
 
 - Cosmetic only  
-- No real satellite connectivity  
-- May break after system updates
+- No real satellite connectivity
