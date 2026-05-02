@@ -7,7 +7,7 @@
 ## ESPAÑOL
 
 Módulo LSPosed para forzar el ícono de conexión satelital (NTN)  
-en la status bar de Android 16 QPR1+
+en la status bar de Android 15 y 16
 
 ---
 
@@ -48,7 +48,7 @@ Activar en LSPosed → reiniciar
 ## ENGLISH
 
 LSPosed module to force the satellite connection icon (NTN)  
-in the status bar of Android 16 QPR1+
+in the status bar of Android 15 & 16
 
 ---
 
