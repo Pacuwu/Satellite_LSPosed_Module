@@ -1,6 +1,6 @@
 # LSPosed Module — Satellite Icon (NTN)
 
-![Android](https://img.shields.io/badge/Android-16-green)
+![Android](https://img.shields.io/badge/Android-15--16-green)
 ![LSPosed](https://img.shields.io/badge/LSPosed-Compatible-green)
 ![Status](https://img.shields.io/badge/Status-Beta-blue)
 
